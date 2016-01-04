@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+	version="2.1">
+
+	<description>BJSXT 1.1 core library</description>
+	<display-name>BJSXT TGA core</display-name>
+	<tlib-version>1.1</tlib-version>
+	<short-name>sxt</short-name>
+	<uri>http://www.bjsxt.com</uri>
+
+	<tag>
+		<description>validate power</description>
+		<name>power</name>
+		<tag-class>com.bjsxt.util.tag.PowerValidate</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<description>powerNum</description>
+			<name>powerNum</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+
+</taglib>

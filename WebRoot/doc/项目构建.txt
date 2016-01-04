@@ -1,0 +1,75 @@
+用户信息管理
+	`id`  int(10)  系统自增长
+	`uname`  varchar(20),用户名 
+	`pwd`  varchar(20) 密码 
+	`nickname`  varchar(12)网络昵称
+	`email`  varchar(40) 用户邮箱
+	'power' varcher(3) 权限等级
+	teacherid varchar(12) 教师的编号
+	`createTime`  datetime 创建时间
+	`updateTime`  datetime 最后修改时间
+教师信息管理
+	`tno`  varchar(14+4)  (教师编号)入职时间(yyyyMMdd)+身份证号码后4位
+	`tname`  varchar(12) 教师姓名
+	`idnumber`  varchar(18) 教师身份证号 
+	`gender`  varchar(2) 性别
+	 hiredate date 入职时间
+	`birthday`  date 生日 
+	`phone`  int(11) 电话号码 
+	`qq`  int(15) QQ 
+	`grjs`  varchar(200) 个人简介
+	'gzlb' varchar(2) 工作类型（授课sk  管理gl）
+	 userid
+	`classid`  varchar(8) 所属班级 
+学生信息管理
+	`sno`  varchar(14+4) 学生编号(入学时间+身份证号后4位)
+	`sname`  varchar(12) 学生姓名
+	`idnumber`  varchar(18)  ,身份证号
+	`gender`  varchar(2)  ,性别
+	'schooltime' date 入学时间
+	`birthday`  date 生日
+	`phone`  int(11),电话
+	`qq`  int(15),qq
+	`grjs`  varchar(200) , 个人介绍
+	`classid`  int(10) , 所属班级
+班级信息管理
+	`cno`  varchar(40) ,班级编号 UUID
+	`cname`  varchar(30) ,班级名称
+	`address`  varchar(3) ,授课地址 301/302/303
+	`beginTime`  date,建班时间 2014-11-11
+	
+	
+	基本功能
+		1表单数据验证
+		2单表数据的增删改查
+		3单表数据的分页查询
+	扩展功能
+		1数据导出
+			(为了保证数据安全,每次都将数据以xml的方式导出到webroot下的backups文件夹下)
+			文件命名方式为 javabean名字+当前系统时间(yyyy-MM-dd hh:mm:ss).xml
+	
+		2自定义标签(权限关联)
+			超级管理员 100
+			普通管理员200
+			一般用户300
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

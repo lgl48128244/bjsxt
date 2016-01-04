@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<filter>
+		<description>编码格式过滤器</description>
+		<filter-name>CharacterFilter</filter-name>
+		<filter-class>com.bjsxt.util.filter.CharacterFilter</filter-class>
+		<init-param>
+			<param-name>character</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharacterFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<description>检查用户是否登录</description>
+		<filter-name>IsLoginFilter</filter-name>
+		<filter-class>com.bjsxt.util.filter.IsLoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>IsLoginFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<description>将Form表单中的数据注入到Javabean</description>
+		<filter-name>Form2beanFilter</filter-name>
+		<filter-class>com.bjsxt.util.filter.Form2beanFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>Form2beanFilter</filter-name>
+		<servlet-name>TeacherController</servlet-name>
+		<servlet-name>UserController</servlet-name>
+	</filter-mapping>
+
+	<filter>
+		<description>将用户操作存放只日志</description>
+		<filter-name>NoteFilter</filter-name>
+		<filter-class>com.bjsxt.util.filter.NoteFilter</filter-class>
+		<init-param>
+			<param-name>isNote</param-name>
+			<param-value>false</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>NoteFilter</filter-name>
+		<servlet-name>UserController</servlet-name>
+		<servlet-name>AddressController</servlet-name>
+	</filter-mapping>
+
+
+	<listener>
+		<listener-class>com.bjsxt.util.lis.ApplicationLis</listener-class>
+	</listener>
+
+
+	<servlet>
+		<description>用户信息管理</description>
+		<servlet-name>UserController</servlet-name>
+		<servlet-class>com.bjsxt.user.web.UserController</servlet-class>
+	</servlet>
+	<servlet>
+		<description>区划信息管理</description>
+		<servlet-name>AddressController</servlet-name>
+		<servlet-class>com.bjsxt.address.web.AddressController</servlet-class>
+	</servlet>
+	<servlet>
+		<description>日志信息管理</description>
+		<servlet-name>NoteController</servlet-name>
+		<servlet-class>com.bjsxt.note.web.NoteController</servlet-class>
+	</servlet>
+	<servlet>
+		<description>电影信息管理</description>
+		<servlet-name>MovieController</servlet-name>
+		<servlet-class>com.bjsxt.movie.web.MovieController</servlet-class>
+	</servlet>
+	<servlet>
+		<description>教师信息管理</description>
+		<servlet-name>TeacherController</servlet-name>
+		<servlet-class>com.bjsxt.teacher.web.TeacherController</servlet-class>
+	</servlet>
+	<servlet>
+		<description>随机生成验证码</description>
+		<servlet-name>CheckCodeServlet</servlet-name>
+		<servlet-class>com.bjsxt.util.CheckCodeServlet</servlet-class>
+	</servlet>
+
+
+
+	<servlet-mapping>
+		<servlet-name>UserController</servlet-name>
+		<url-pattern>/UserController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddressController</servlet-name>
+		<url-pattern>/AddressController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>NoteController</servlet-name>
+		<url-pattern>/NoteController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MovieController</servlet-name>
+		<url-pattern>/MovieController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>TeacherController</servlet-name>
+		<url-pattern>/TeacherController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CheckCodeServlet</servlet-name>
+		<url-pattern>/CheckCodeServlet</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>login.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
